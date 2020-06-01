@@ -1,0 +1,7 @@
+Задача 2 / Task 2
+
+Составить программу, которая по заданным году и номеру месяца
+определяет количество дней в этом месяце и корректно определялись все високосные года.
+
+Create a program that uses the specified year and month number
+defines the number of days in this month and all leap years were determined correctly.

@@ -1,0 +1,9 @@
+Задача 3 / Task 3
+
+Окружность вписана в квадрат заданной площади.
+Найти площадь квадрата, вписанного в эту окружность.
+Во сколько раз площадь вписанного квадрата меньше площади заданного?
+
+A circle inscribed in a square given area.
+Find the area of the square inscribed in this circle.
+How many times is the area of the inscribed square less than the area of the specified one?

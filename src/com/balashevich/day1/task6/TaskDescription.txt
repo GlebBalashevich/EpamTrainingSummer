@@ -1,0 +1,7 @@
+Задача 6 / Task 6
+
+Идет n-я секунда суток, определить, сколько полных часов,
+полных минут и секунд прошло к этому моменту.
+
+It is the n-th second of the day, determine how many full hours,
+full minutes and seconds had passed by this point.

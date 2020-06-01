@@ -1,0 +1,9 @@
+Задача 4 / Task 4
+
+Составить программу, печатающую значение true, если указанное высказывание является
+истинным, и false — в противном случае: среди заданных целых чисел А, В, С, D есть
+хотя бы два четных.
+
+Create a program that prints true if the specified utterance is
+true, and false-otherwise: among the given integers A, B, C, D are
+at least two even numbers.

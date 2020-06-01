@@ -1,0 +1,9 @@
+Задача 8 / Task 8
+
+Вычислить значение функции.
+если х >= 3 : -х в квадрате + 3х + 9
+если х < 3 : 1 / x в кубе  - 6
+
+To calculate the value of the function.
+if x >= 3 : -x squared + 3x + 9
+if x < 3: 1 / x in the cube - 6

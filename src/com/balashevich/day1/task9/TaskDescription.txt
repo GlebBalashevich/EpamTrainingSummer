@@ -1,0 +1,5 @@
+Задача 9 / Task 9
+
+Вычислить длину окружности и площадь круга одного и того же заданного радиуса R.
+
+Calculate the circumference and area of the circle of the same specified radius R.
