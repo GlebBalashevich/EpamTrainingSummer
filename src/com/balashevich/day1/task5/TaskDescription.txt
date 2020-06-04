@@ -1,9 +1,0 @@
-Задача 5 / Task 5
-
-Составить программу, печатающую значение true, если указанное высказывание
-является истинным, и false — в противном случае: является ли целое число
-совершенным (сумма делителей равна самому числу).
-
-Create a program that prints true if the specified utterance
-is true, and false-otherwise: is an integer
-perfect (the sum of the divisors is equal to the number itself).

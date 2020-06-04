@@ -1,5 +1,0 @@
-Задача 1 / Task 1
-
-Написать программу, позволяющую по последней цифре числа определить последнюю цифру его квадрата.
-
-Write a program that allows the last digit of a number to determine the last digit of its square.
