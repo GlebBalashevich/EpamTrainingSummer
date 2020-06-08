@@ -1,94 +1,31 @@
 package com.balashevich.oopstyle.validator;
 
-import com.balashevich.oopstyle.parser.VariableParser;
-
 public class ArithmeticValidator {
-    private VariableParser variableParser = new VariableParser();
+    private final int FUNCTION_ZERO_DIVIDER = 6;
 
-    public boolean validateInteger(String integerValue, int minValue, int maxValue) {
-        try {
-            int number = variableParser.parseInt(integerValue);
-            if (number < minValue || number > maxValue) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
+    public boolean validateNumbersSequence(int ...numbers){
+        boolean result = true;
+        if (numbers == null){
+            result = false;
+        } else if (numbers.length < 2){
+            result = false;
         }
-        return true;
+        return result;
     }
 
-    public boolean validateInteger(int number, int minValue, int maxValue) {
-        return !(number < minValue || number > maxValue);
+    public boolean validateFunctionArgument(double argument){
+        return (Math.pow(argument, 3) != FUNCTION_ZERO_DIVIDER);
     }
 
-    public boolean validateIntegerArray(String integerValues, int minValue, int maxValue) {
-        try {
-            int[] numbers = variableParser.parseIntArray(integerValues);
-
-            for (int checkingNumber : numbers) {
-                if (checkingNumber < minValue || checkingNumber > maxValue) {
-                    return false;
-                }
-            }
-        } catch (NumberFormatException e) {
-            return false;
+    public boolean validateLineSegment(double firstPoint, double secondPoint, double functionStep){
+        boolean result = true;
+        if (firstPoint > secondPoint && functionStep > 0){
+            result = false;
+        } else if (firstPoint < secondPoint && functionStep < 0){
+            result = false;
+        } else if (Math.abs(firstPoint - secondPoint) < functionStep){
+            result = false;
         }
-        return true;
-    }
-
-    public boolean validateLong(String longValue, long minValue, long maxValue) {
-        try {
-            long longNumber = variableParser.parseLong(longValue);
-            if (longNumber < minValue || longNumber > maxValue) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateDouble(String doubleValue, double notEqualValue) {
-        try {
-            double realNumber = variableParser.parseDouble(doubleValue);
-            if (realNumber == notEqualValue) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateDouble(String doubleValue, double minValue, double maxValue) {
-        try {
-            double realNumber = variableParser.parseDouble(doubleValue);
-            if (realNumber < minValue || realNumber > maxValue) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean validateLineFunction(String firstPointValue, String secondPointValue, String stepValue) {
-        try {
-            double firstPoint = variableParser.parseDouble(firstPointValue);
-            double secondPoint = variableParser.parseDouble(secondPointValue);
-            double step = variableParser.parseDouble(stepValue);
-            if (firstPoint > secondPoint) {
-                return false;
-            }
-            if (secondPoint - firstPoint < step) {
-                return false;
-            }
-            if (step < 0) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
+        return result;
     }
 }
