@@ -1,7 +1,6 @@
-package balashevich.oopstyle.service;
+package com.balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
-import com.balashevich.oopstyle.service.ArithmeticService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

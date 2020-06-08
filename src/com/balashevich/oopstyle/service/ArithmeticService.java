@@ -1,7 +1,8 @@
 package com.balashevich.oopstyle.service;
 
-import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
 import com.balashevich.oopstyle.validator.ArithmeticValidator;
+import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
+
 import java.util.SortedMap;
 import java.util.TreeMap;
 

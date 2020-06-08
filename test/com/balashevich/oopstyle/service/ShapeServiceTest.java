@@ -1,8 +1,7 @@
-package balashevich.oopstyle.service;
+package com.balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.entity.Point;
 import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
-import com.balashevich.oopstyle.service.ShapeService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 

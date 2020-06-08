@@ -1,7 +1,6 @@
-package balashevich.oopstyle.parser;
+package com.balashevich.oopstyle.parser;
 
 import com.balashevich.oopstyle.entity.Point;
-import com.balashevich.oopstyle.parser.EntityParser;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

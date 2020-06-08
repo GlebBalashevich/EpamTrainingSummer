@@ -1,7 +1,6 @@
-package balashevich.oopstyle.service;
+package com.balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
-import com.balashevich.oopstyle.service.TimeService;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

@@ -1,7 +1,6 @@
-package balashevich.oopstyle.validator;
+package com.balashevich.oopstyle.validator;
 
 import com.balashevich.oopstyle.entity.Point;
-import com.balashevich.oopstyle.validator.ShapeValidator;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

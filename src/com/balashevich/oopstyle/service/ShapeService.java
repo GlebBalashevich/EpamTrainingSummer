@@ -1,8 +1,8 @@
 package com.balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.entity.Point;
-import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
 import com.balashevich.oopstyle.validator.ShapeValidator;
+import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
 
 public class ShapeService {
 
