@@ -1,4 +1,4 @@
-package test.balashevich.oopstyle.validator;
+package balashevich.oopstyle.validator;
 
 import com.balashevich.oopstyle.entity.Point;
 import com.balashevich.oopstyle.validator.ShapeValidator;

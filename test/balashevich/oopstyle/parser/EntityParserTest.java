@@ -1,4 +1,4 @@
-package test.balashevich.oopstyle.parser;
+package balashevich.oopstyle.parser;
 
 import com.balashevich.oopstyle.entity.Point;
 import com.balashevich.oopstyle.parser.EntityParser;

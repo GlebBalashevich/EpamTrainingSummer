@@ -1,4 +1,4 @@
-package test.balashevich.oopstyle.service;
+package balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
 import com.balashevich.oopstyle.service.ArithmeticService;
