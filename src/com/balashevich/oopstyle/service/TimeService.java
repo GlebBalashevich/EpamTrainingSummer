@@ -45,7 +45,6 @@ public class TimeService {
         int hours = balanceSeconds / HOUR_SECONDS;
         balanceSeconds = balanceSeconds % HOUR_SECONDS;
         int minutes = balanceSeconds / MINUTE_SECONDS;
-        System.out.println(minutes);
         int seconds = balanceSeconds % MINUTE_SECONDS;
 
         return LocalTime.of(hours, minutes, seconds);

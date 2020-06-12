@@ -3,6 +3,7 @@ package com.balashevich.oopstyle.console;
 import com.balashevich.oopstyle.entity.Point;
 
 public class ShapeConsole {
+
     public void printSquaresProportion(double proportion) {
         System.out.printf("Outer square more than Inner square in %.2f times.%n", proportion);
     }

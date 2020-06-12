@@ -16,7 +16,7 @@ public class ShapeServiceTest {
     }
 
     @Test
-    public void testCalculateSquaresProportionPositive() {
+    public void calculateSquaresProportionTestPositive() {
         try {
             double actual = shapeService.calculateSquaresProportion(16);
             double expected = 2;
@@ -27,7 +27,7 @@ public class ShapeServiceTest {
     }
 
     @Test
-    public void testCalculateSquaresProportionNegative() {
+    public void calculateSquaresProportionTestNegative() {
         try {
             double actual = shapeService.calculateSquaresProportion(16);
             double expected = 8;
@@ -38,12 +38,12 @@ public class ShapeServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateSquaresProportionException() throws ProjectInvalidDataException {
+    public void calculateSquaresProportionTestException() throws ProjectInvalidDataException {
         shapeService.calculateSquaresProportion(-5);
     }
 
     @Test
-    public void testSearchPointNearestOriginPositive() {
+    public void searchPointNearestOriginTestPositive() {
         try {
             Point firstPoint = new Point("A", 5, 10);
             Point secondPoint = new Point("B", 10, 8);
@@ -55,7 +55,7 @@ public class ShapeServiceTest {
     }
 
     @Test
-    public void testSearchPointNearestOriginNegative() {
+    public void searchPointNearestOriginTestNegative() {
         try {
             Point firstPoint = new Point("A", 12, 10);
             Point secondPoint = new Point("B", 10, 8);
@@ -67,14 +67,14 @@ public class ShapeServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testSearchPointNearestOriginException() throws ProjectInvalidDataException {
+    public void searchPointNearestOriginTestException() throws ProjectInvalidDataException {
         Point firstPoint = new Point("A", -12, 10);
         Point secondPoint = new Point("B", 10, 8);
         shapeService.searchPointNearestOrigin(firstPoint, secondPoint);
     }
 
     @Test
-    public void testCalculateRoundCircumferencePositive() {
+    public void calculateRoundCircumferenceTestPositive() {
         try {
             double actual = shapeService.calculateRoundCircumference(17);
             double expected = 106.814;
@@ -85,7 +85,7 @@ public class ShapeServiceTest {
     }
 
     @Test
-    public void testCalculateRoundCircumferenceNegative() {
+    public void calculateRoundCircumferenceTestNegative() {
         try {
             double actual = shapeService.calculateRoundCircumference(17);
             double expected = 96.814;
@@ -96,12 +96,12 @@ public class ShapeServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateRoundCircumferenceException() throws ProjectInvalidDataException {
+    public void calculateRoundCircumferenceTestException() throws ProjectInvalidDataException {
         shapeService.calculateRoundCircumference(-17);
     }
 
     @Test
-    public void testCalculateCircleAreaPositive() {
+    public void calculateCircleAreaTestPositive() {
         try {
             double actual = shapeService.calculateCircleArea(17);
             double expected = 907.92;
@@ -112,10 +112,10 @@ public class ShapeServiceTest {
     }
 
     @Test
-    public void testCalculateCircleAreaNegative() {
+    public void calculateCircleAreaTestNegative() {
         try {
             double actual = shapeService.calculateCircleArea(17);
-            double expected = 107.92;
+            double expected = 7.306;
             assertNotEquals(actual, expected, 0.001);
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
@@ -123,7 +123,7 @@ public class ShapeServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateCircleAreaException() throws ProjectInvalidDataException {
+    public void calculateCircleAreaTestException() throws ProjectInvalidDataException {
         shapeService.calculateCircleArea(-17);
     }
 }

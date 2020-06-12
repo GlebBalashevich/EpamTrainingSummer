@@ -24,7 +24,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "numberSequencePositiveData")
-    public void testValidateNumbersSequencePositive(boolean expected, int... numbers) {
+    public void validateNumbersSequenceTestPositive(boolean expected, int... numbers) {
         boolean actual = arithmeticValidator.validateNumbersSequence(numbers);
         assertEquals(actual, expected);
     }
@@ -39,7 +39,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "numberSequenceNegativeData")
-    public void testValidateNumbersSequenceNegative(boolean expected, int... numbers) {
+    public void validateNumbersSequenceTestNegative(boolean expected, int... numbers) {
         boolean actual = arithmeticValidator.validateNumbersSequence(numbers);
         assertNotEquals(actual, expected);
     }
@@ -55,7 +55,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "functionArgumentPositiveData")
-    public void testValidateFunctionArgumentPositive(double argument, boolean expected) {
+    public void validateFunctionArgumentTestPositive(double argument, boolean expected) {
         boolean actual = arithmeticValidator.validateFunctionArgument(argument);
         assertEquals(actual, expected);
     }
@@ -71,7 +71,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "functionArgumentNegativeData")
-    public void testValidateFunctionArgumentNegative(double argument, boolean expected) {
+    public void validateFunctionArgumentTestNegative(double argument, boolean expected) {
         boolean actual = arithmeticValidator.validateFunctionArgument(argument);
         assertNotEquals(actual, expected);
     }
@@ -86,7 +86,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "lineSegmentPositiveData")
-    public void testValidateLineSegmentPositive(double firstPoint, double secondPoint, double step) {
+    public void validateLineSegmentTestPositive(double firstPoint, double secondPoint, double step) {
         boolean actual = arithmeticValidator.validateLineSegment(firstPoint, secondPoint, step);
         assertTrue(actual);
     }
@@ -101,7 +101,7 @@ public class ArithmeticValidatorTest {
     }
 
     @Test(dataProvider = "lineSegmentNegativeData")
-    public void testValidateLineSegmentNegative(double firstPoint, double secondPoint, double step) {
+    public void validateLineSegmentTestNegative(double firstPoint, double secondPoint, double step) {
         boolean actual = arithmeticValidator.validateLineSegment(firstPoint, secondPoint, step);
         assertNotEquals(actual, true);
     }

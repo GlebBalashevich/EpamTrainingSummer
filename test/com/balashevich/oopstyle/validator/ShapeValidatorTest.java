@@ -25,7 +25,7 @@ public class ShapeValidatorTest {
     }
 
     @Test(dataProvider = "pointPositiveData")
-    public void testValidatePointPositive(Point point, boolean expected) {
+    public void validatePointTestPositive(Point point, boolean expected) {
         boolean actual = shapeValidator.validatePoint(point);
         assertEquals(actual, expected);
     }
@@ -40,7 +40,7 @@ public class ShapeValidatorTest {
     }
 
     @Test(dataProvider = "pointNegativeData")
-    public void testValidatePointNegative(Point point, boolean expected) {
+    public void validatePointTestNegative(Point point, boolean expected) {
         boolean actual = shapeValidator.validatePoint(point);
         assertNotEquals(actual, expected);
     }

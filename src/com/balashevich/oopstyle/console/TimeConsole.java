@@ -3,6 +3,7 @@ package com.balashevich.oopstyle.console;
 import java.util.Map;
 
 public class TimeConsole {
+
     public void printDaysInMonth(int days) {
         System.out.printf("%d days in month.%n", days);
     }

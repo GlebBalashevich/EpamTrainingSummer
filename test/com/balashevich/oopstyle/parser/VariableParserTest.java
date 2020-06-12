@@ -23,13 +23,13 @@ public class VariableParserTest {
     }
 
     @Test(dataProvider = "integerData")
-    public void testParseInt(String integerData, int expected) {
+    public void parseIntTest(String integerData, int expected) {
         int actual = variableParser.parseInt(integerData);
         assertEquals(actual, expected);
     }
 
     @Test(expectedExceptions = NumberFormatException.class)
-    public void testParseIntNumberFormatException() {
+    public void parseIntNumberFormatExceptionTest() {
         variableParser.parseInt("abc");
     }
 
@@ -42,13 +42,13 @@ public class VariableParserTest {
     }
 
     @Test(dataProvider = "integerArrayData")
-    public void testParseIntArray(String integerArrayData, int[] expected) {
+    public void parseIntArrayTest(String integerArrayData, int[] expected) {
         int[] actual = variableParser.parseIntArray(integerArrayData);
 
     }
 
     @Test(expectedExceptions = NumberFormatException.class)
-    public void testParseIntArrayException() {
+    public void parseIntArrayExceptionTest() {
         variableParser.parseIntArray("32432,,ds,asd,.,");
     }
 
@@ -62,13 +62,13 @@ public class VariableParserTest {
     }
 
     @Test(dataProvider = "longData")
-    public void testParseLong(String longData, long expected) {
+    public void parseLongTest(String longData, long expected) {
         long actual = variableParser.parseLong(longData);
         assertEquals(actual, expected);
     }
 
     @Test(expectedExceptions = NumberFormatException.class)
-    public void testParseLongException() {
+    public void parseLongExceptionTest() {
         variableParser.parseLong("abc");
     }
 
@@ -82,13 +82,13 @@ public class VariableParserTest {
     }
 
     @Test(dataProvider = "doubleData")
-    public void testParseDouble(String doubleData, double expected) {
+    public void parseDoubleTest(String doubleData, double expected) {
         double actual = variableParser.parseDouble(doubleData);
         assertEquals(actual, expected);
     }
 
     @Test(expectedExceptions = NumberFormatException.class)
-    public void testParseDoubleException() {
+    public void parseDoubleExceptionTest() {
         variableParser.parseDouble("1sdf-.dv3");
     }
 }

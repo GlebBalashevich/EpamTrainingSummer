@@ -8,36 +8,39 @@ import java.util.TreeMap;
 
 public class ArithmeticService {
     private final int FIRST_PERFECT_NUMBER = 6;
+    private final int DECIMAL_DIVISOR = 10;
+    private final int EVEN_DIVIDER = 2;
+
 
     public int calculateSquareLastDigit(int number) {
         number = Math.abs(number);
-        return (int) (Math.pow(number % 10, 2) % 10);
+        return (int) (Math.pow(number % DECIMAL_DIVISOR, 2) % DECIMAL_DIVISOR);
     }
 
-    public boolean isTwoEvenNumbers(int ...numbers) throws ProjectInvalidDataException {
+    public boolean isTwoEvenNumbers(int... numbers) throws ProjectInvalidDataException {
         ArithmeticValidator arithmeticValidator = new ArithmeticValidator();
-        if (!arithmeticValidator.validateNumbersSequence(numbers)){
+        if (!arithmeticValidator.validateNumbersSequence(numbers)) {
             throw new ProjectInvalidDataException();
         }
 
         int evenCount = 0;
 
         for (int checkNumber : numbers) {
-            if (checkNumber % 2 == 0) {
+            if (checkNumber % EVEN_DIVIDER == 0) {
                 evenCount++;
             }
         }
 
-        return evenCount >= 2;
+        return evenCount >= EVEN_DIVIDER;
     }
 
-    public boolean isNumberPerfect(long number) throws ProjectInvalidDataException{
-        if (number < 0){
+    public boolean isNumberPerfect(long number) throws ProjectInvalidDataException {
+        if (number < 0) {
             throw new ProjectInvalidDataException();
         }
 
         long sumCubes = 0;
-        long index = 1;
+        long loopIndex = 1;
         boolean result = false;
 
         /* not even numbers can't be perfect */
@@ -46,20 +49,20 @@ public class ArithmeticService {
         }
         /* this number is not calculated using the formula
         below, i.e. it is special */
-        if (number == FIRST_PERFECT_NUMBER){
+        if (number == FIRST_PERFECT_NUMBER) {
             return true;
         }
 
-        while(sumCubes < number){
-            sumCubes += Math.pow(index, 3);
-            index += 2;
+        while (sumCubes < number) {
+            sumCubes += Math.pow(loopIndex, 3);
+            loopIndex += 2;
         }
         return sumCubes == number;
     }
 
-    public double calculateArithmeticFunction(double argument) throws ProjectInvalidDataException{
+    public double calculateArithmeticFunction(double argument) throws ProjectInvalidDataException {
         ArithmeticValidator arithmeticValidator = new ArithmeticValidator();
-        if (!arithmeticValidator.validateFunctionArgument(argument)){
+        if (!arithmeticValidator.validateFunctionArgument(argument)) {
             throw new ProjectInvalidDataException();
         }
         double result = 0;
@@ -73,9 +76,9 @@ public class ArithmeticService {
         return result;
     }
 
-    public SortedMap<Double, Double> calculateTrigonometricFunction(double firstPoint, double secondPoint, double functionStep) throws ProjectInvalidDataException{
+    public SortedMap<Double, Double> calculateTrigonometricFunction(double firstPoint, double secondPoint, double functionStep) throws ProjectInvalidDataException {
         ArithmeticValidator arithmeticValidator = new ArithmeticValidator();
-        if (!arithmeticValidator.validateLineSegment(firstPoint, secondPoint, functionStep)){
+        if (!arithmeticValidator.validateLineSegment(firstPoint, secondPoint, functionStep)) {
             throw new ProjectInvalidDataException();
         }
 
@@ -83,7 +86,11 @@ public class ArithmeticService {
         SortedMap<Double, Double> functionResult = new TreeMap<>();
 
         while (functionArgument <= secondPoint) {
-            functionResult.put(functionArgument, Math.tan(functionArgument));
+            double tan = Math.tan(functionArgument);
+            double scale = Math.pow(10, 3);
+            tan = Math.ceil(tan * scale) / scale;
+
+            functionResult.put(functionArgument, tan);
             functionArgument += functionStep;
         }
 

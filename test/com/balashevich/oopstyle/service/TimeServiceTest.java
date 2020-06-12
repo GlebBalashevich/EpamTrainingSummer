@@ -2,6 +2,7 @@ package com.balashevich.oopstyle.service;
 
 import com.balashevich.oopstyle.exception.ProjectInvalidDataException;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.LocalTime;
@@ -17,7 +18,7 @@ public class TimeServiceTest {
     }
 
     @Test
-    public void testDetermineDaysInMonthPositive() {
+    public void determineDaysInMonthTestPositive() {
         try {
             int actual = timeService.determineDaysInMonth(2, 2020);
             int expected = 29;
@@ -28,7 +29,7 @@ public class TimeServiceTest {
     }
 
     @Test
-    public void testDetermineDaysInMonthNegative() {
+    public void determineDaysInMonthTestNegative() {
         try {
             int actual = timeService.determineDaysInMonth(2, 2019);
             int expected = 29;
@@ -38,38 +39,68 @@ public class TimeServiceTest {
         }
     }
 
-    @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testDetermineDaysInMonthException() throws ProjectInvalidDataException {
-        timeService.determineDaysInMonth(16, 2020);
+    @DataProvider(name = "dateValues")
+    public Object[][] createDateValues() {
+        return new Object[][]{
+                {16, 2020},
+                {11, 1402},
+                {-5, 1989},
+                {5, -123},
+        };
     }
 
-    @Test
-    public void testIsLeapYearPositive() {
+    @Test(expectedExceptions = ProjectInvalidDataException.class, dataProvider = "dateValues")
+    public void determineDaysInMonthTestException(int month, int year) throws ProjectInvalidDataException {
+        timeService.determineDaysInMonth(month, year);
+    }
+
+    @DataProvider(name = "yearValuesPositive")
+    public Object[][] createYearsPositiveData() {
+        return new Object[][]{
+                {true, 2020},
+                {false, 1981},
+                {false, 1900},
+                {true, 2000},
+        };
+    }
+
+    @Test(dataProvider = "yearValuesPositive")
+    public void isLeapYearTestPositive(boolean expected, int year) {
         try {
-            boolean actual = timeService.isLeapYear(2020);
-            assertTrue(actual, "error in test on Positive result");
+            boolean actual = timeService.isLeapYear(year);
+            assertEquals(actual, expected, "error in test on Positive result");
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
         }
     }
 
-    @Test
-    public void testIsLeapYearNegative() {
+    @DataProvider(name = "yearValuesNegative")
+    public Object[][] createYearsNegativeData() {
+        return new Object[][]{
+                {false, 2016},
+                {true, 1593},
+                {true, 1700},
+                {false, 2000},
+        };
+    }
+
+    @Test(dataProvider = "yearValuesNegative")
+    public void isLeapYearTestNegative(boolean expected, int year) {
         try {
-            boolean actual = timeService.isLeapYear(2019);
-            assertNotEquals(actual, true, "error in test on Negative result");
+            boolean actual = timeService.isLeapYear(year);
+            assertNotEquals(actual, expected, "error in test on Negative result");
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
         }
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testIsLeapYearException() throws ProjectInvalidDataException {
+    public void isLeapYearTestException() throws ProjectInvalidDataException {
         timeService.isLeapYear(500);
     }
 
     @Test
-    public void testCalculateDayClockPositive() {
+    public void calculateDayClockTestPositive() {
         try {
             LocalTime actual = timeService.calculateDayClock(85530);
             LocalTime expected = LocalTime.of(23, 45, 30);
@@ -80,7 +111,7 @@ public class TimeServiceTest {
     }
 
     @Test
-    public void testCalculateDayClockNegative() {
+    public void calculateDayClockTestNegative() {
         try {
             LocalTime actual = timeService.calculateDayClock(85530);
             LocalTime expected = LocalTime.of(23, 10, 30);
@@ -91,7 +122,7 @@ public class TimeServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateDayClockException() throws ProjectInvalidDataException{
+    public void calculateDayClockTestException() throws ProjectInvalidDataException {
         timeService.calculateDayClock(-100);
     }
 }

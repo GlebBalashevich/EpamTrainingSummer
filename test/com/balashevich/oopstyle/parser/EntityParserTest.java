@@ -25,7 +25,7 @@ public class EntityParserTest {
     }
 
     @Test(dataProvider = "pointPositiveData")
-    public void testParsePointPositive(String pointData, Point expected) {
+    public void parsePointTestPositive(String pointData, Point expected) {
         Point actual = entityParser.parsePoint(pointData);
         assertTrue(actual.equals(expected));
     }
@@ -40,12 +40,12 @@ public class EntityParserTest {
     }
 
     @Test(dataProvider = "pointExceptionData", expectedExceptions = IllegalArgumentException.class)
-    public void testParsePointIllegalArgumentException(String pointData) {
+    public void parsePointIllegalArgumentTestException(String pointData) {
         entityParser.parsePoint(pointData);
     }
 
     @Test(expectedExceptions = StringIndexOutOfBoundsException.class)
-    public void testParsePointStringOutOfBoundsException() {
+    public void parsePointStringOutOfBoundsTestException() {
         entityParser.parsePoint("B(g58)");
     }
 }

@@ -19,21 +19,21 @@ public class ArithmeticServiceTest {
     }
 
     @Test
-    public void testCalculateSquareLastDigitPositive() {
+    public void calculateSquareLastDigitTestPositive() {
         int actual = arithmeticService.calculateSquareLastDigit(18);
         int expected = 4;
         assertEquals(actual, expected);
     }
 
     @Test
-    public void testCalculateSquareLastDigitNegative() {
+    public void calculateSquareLastDigitTestNegative() {
         int actual = arithmeticService.calculateSquareLastDigit(18);
-        int expected = 8;
+        int expected = 18;
         assertNotEquals(actual, expected);
     }
 
     @Test
-    public void testIsTwoEvenNumbersPositive() {
+    public void isTwoEvenNumbersTestPositive() {
         try {
             boolean actual = arithmeticService.isTwoEvenNumbers(5, 8, 3, 1, 7, 2);
             assertTrue(actual);
@@ -43,7 +43,7 @@ public class ArithmeticServiceTest {
     }
 
     @Test
-    public void testIsTwoEvenNumbersNegative() {
+    public void isTwoEvenNumbersTestNegative() {
         try {
             boolean actual = arithmeticService.isTwoEvenNumbers(5, 9, 3, 1, 7, 2);
             assertNotEquals(actual, true);
@@ -53,12 +53,12 @@ public class ArithmeticServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testIsTwoEvenNumbersException() throws ProjectInvalidDataException {
+    public void isTwoEvenNumbersTestException() throws ProjectInvalidDataException {
         arithmeticService.isTwoEvenNumbers(2);
     }
 
     @Test
-    public void testIsNumberPerfectPositive() {
+    public void isNumberPerfectTestPositive() {
         try {
             boolean actual = arithmeticService.isNumberPerfect(2_305_843_008_139_952_128L);
             assertTrue(actual);
@@ -69,7 +69,7 @@ public class ArithmeticServiceTest {
     }
 
     @Test
-    public void testIsNumberPerfectNegative() {
+    public void isNumberPerfectTestNegative() {
         try {
             boolean actual = arithmeticService.isNumberPerfect(2_305_843_008_139_952_120L);
             assertNotEquals(actual, true);
@@ -79,7 +79,7 @@ public class ArithmeticServiceTest {
     }
 
     @Test(timeOut = 100)
-    public void testIsNumberPerfectTimeout() {
+    public void isNumberPerfectTestTimeout() {
         try {
             arithmeticService.isNumberPerfect(2_305_843_008_139_952_120L);
         } catch (ProjectInvalidDataException e) {
@@ -88,12 +88,12 @@ public class ArithmeticServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testIsNumberPerfectException() throws ProjectInvalidDataException {
+    public void isNumberPerfectTestException() throws ProjectInvalidDataException {
         arithmeticService.isNumberPerfect(-2_305_843_008_139_952_120L);
     }
 
-    @DataProvider(name = "arguments")
-    public Object[][] createArgumentData() {
+    @DataProvider(name = "argumentsPositive")
+    public Object[][] createArgumentDataPositive() {
         return new Object[][]{
                 {0, -0.167},
                 {1, -0.2},
@@ -101,8 +101,8 @@ public class ArithmeticServiceTest {
                 {4, 5}};
     }
 
-    @Test(dataProvider = "arguments")
-    public void testCalculateArithmeticFunctionPositive(double argument, double expected) {
+    @Test(dataProvider = "argumentsPositive")
+    public void calculateArithmeticFunctionTestPositive(double argument, double expected) {
         try {
             double actual = arithmeticService.calculateArithmeticFunction(argument);
             assertEquals(actual, expected, 0.001);
@@ -111,11 +111,19 @@ public class ArithmeticServiceTest {
         }
     }
 
-    @Test
-    public void testCalculateArithmeticFunctionNegative() {
+    @DataProvider(name = "argumentsNegative")
+    public Object[][] createArgumentDataNegative() {
+        return new Object[][]{
+                {0, 0.167},
+                {1, 0.2},
+                {3, 3},
+                {4, -5}};
+    }
+
+    @Test(dataProvider = "argumentsNegative")
+    public void calculateArithmeticFunctionTestNegative(double argument, double expected) {
         try {
-            double actual = arithmeticService.calculateArithmeticFunction(3);
-            double expected = 10;
+            double actual = arithmeticService.calculateArithmeticFunction(argument);
             assertNotEquals(actual, expected, 0.001);
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
@@ -123,18 +131,18 @@ public class ArithmeticServiceTest {
     }
 
     @Test(expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateArithmeticFunctionException() throws ProjectInvalidDataException {
+    public void calculateArithmeticFunctionTestException() throws ProjectInvalidDataException {
         arithmeticService.calculateArithmeticFunction(Math.cbrt(6));
     }
 
     @Test
-    public void testCalculateTrigonometricFunctionPositive() {
+    public void calculateTrigonometricFunctionTestPositive() {
         try {
             SortedMap<Double, Double> actual = arithmeticService.calculateTrigonometricFunction(3, 8, 2);
             SortedMap<Double, Double> expected = new TreeMap<>();
-            expected.put(3.0, -0.1425465430742778);
-            expected.put(5.0, -3.380515006246586);
-            expected.put(7.0, 0.8714479827243187);
+            expected.put(3.0, -0.142);
+            expected.put(5.0, -3.380);
+            expected.put(7.0, 0.872);
             assertEquals(actual, expected);
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
@@ -142,13 +150,13 @@ public class ArithmeticServiceTest {
     }
 
     @Test
-    public void testCalculateTrigonometricFunctionNegative() {
+    public void calculateTrigonometricFunctionTestNegative() {
         try {
             SortedMap<Double, Double> actual = arithmeticService.calculateTrigonometricFunction(3, 8, 2);
             SortedMap<Double, Double> expected = new TreeMap<>();
-            expected.put(-0.1425465430742778, 3.0);
-            expected.put(-3.380515006246586, 5.0);
-            expected.put(0.8714479827243187, 7.0);
+            expected.put(-0.142, 3.0);
+            expected.put(-3.381, 5.0);
+            expected.put(0.871, 7.0);
             assertNotEquals(actual, expected);
         } catch (ProjectInvalidDataException e) {
             fail("exception occurred");
@@ -165,8 +173,8 @@ public class ArithmeticServiceTest {
     }
 
     @Test(dataProvider = "trigonometricExceptionData", expectedExceptions = ProjectInvalidDataException.class)
-    public void testCalculateTrigonometricFunctionException(double firstPoint, double secondPoint, double step)
-            throws ProjectInvalidDataException{
+    public void calculateTrigonometricFunctionTestException(double firstPoint, double secondPoint, double step)
+            throws ProjectInvalidDataException {
         arithmeticService.calculateTrigonometricFunction(firstPoint, secondPoint, step);
     }
 }

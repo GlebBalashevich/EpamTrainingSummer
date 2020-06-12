@@ -23,7 +23,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "monthPositiveData")
-    public void testValidateMonthNumberPositive(int month, boolean expected) {
+    public void validateMonthNumberTestPositive(int month, boolean expected) {
         boolean actual = timeValidator.validateMonthNumber(month);
         assertEquals(actual, expected);
     }
@@ -37,7 +37,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "monthNegativeData")
-    public void testValidateMonthNumberNegative(int month, boolean expected) {
+    public void validateMonthNumberTestNegative(int month, boolean expected) {
         boolean actual = timeValidator.validateMonthNumber(month);
         assertNotEquals(actual, expected);
     }
@@ -51,7 +51,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "yearPositiveData")
-    public void testValidateYearNumberPositive(int year, boolean expected) {
+    public void validateYearNumberTestPositive(int year, boolean expected) {
         boolean actual = timeValidator.validateYearNumber(year);
         assertEquals(actual, expected);
     }
@@ -65,7 +65,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "yearNegativeData")
-    public void testValidateYearNumberNegative(int year, boolean expected) {
+    public void validateYearNumberTestNegative(int year, boolean expected) {
         boolean actual = timeValidator.validateYearNumber(year);
         assertNotEquals(actual, expected);
     }
@@ -79,7 +79,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "secondsDayPositiveData")
-    public void testValidateSecondsInDayPositive(int daySeconds, boolean expected) {
+    public void validateSecondsInDayTestPositive(int daySeconds, boolean expected) {
         boolean actual = timeValidator.validateSecondsInDay(daySeconds);
         assertEquals(actual, expected);
     }
@@ -93,7 +93,7 @@ public class TimeValidatorTest {
     }
 
     @Test(dataProvider = "secondsDayNegativeData")
-    public void testValidateSecondsInDayNegative(int daySeconds, boolean expected) {
+    public void validateSecondsInDayTestNegative(int daySeconds, boolean expected) {
         boolean actual = timeValidator.validateSecondsInDay(daySeconds);
         assertNotEquals(actual, expected);
     }
